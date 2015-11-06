@@ -25,9 +25,9 @@ var crawlers = {
       //console.log(cwl);
 
       ctx.fillStyle = "rgb(255, 255, 255)";
-      ctx.fillRect(cwl.x, cwl.y, size, size);
+      ctx.fillRect(cwl.x*size, cwl.y*size, size, size);
       ctx.fillStyle = "rgba(255, 0, 0, " + (cwl.life * 0.1) + ")";
-      ctx.fillRect(cwl.x, cwl.y, size, size);
+      ctx.fillRect(cwl.x*size, cwl.y*size, size, size);
     }
   }
 };
