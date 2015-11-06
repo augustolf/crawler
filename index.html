@@ -14,31 +14,23 @@
       var can = function () {
         var canvas;
         var context;
-        var x = 0;
-        var y = 0;
-
-        function currectX() {
-          return x = x + 1;
-        }
-
-        function currectY() {
-          return y = y + 1;
-        }
 
         return {
           draw: function (ctx) {
             console.log("Draw");
             grass.draw(ctx);
+            crawlers.draw(ctx);
           },
           init: function () {
             console.log("Init");
             canvas = document.getElementById("myCanvas");
             context = canvas.getContext("2d");
             grass.init(context);
+            crawlers.init(500, 500, 2);
             setInterval(can.draw(context), 1000);
           }
         }
-      } ();
+      }();
       window.onload = can.init;
     </script>
 </body>
