@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Test Canvas</title>
+  <script src="crawler.js"></script>
+  <script src='perlin.js'></script>
+  <script src="grass.js"></script>
+</head>
+
+<body>
+    <canvas id="myCanvas" width="500" height="500" style="border:1px solid #000000;"></canvas>
+    <script type="text/javascript">
+
+      var can = function () {
+        var canvas;
+        var context;
+        var x = 0;
+        var y = 0;
+
+        function currectX() {
+          return x = x + 1;
+        }
+
+        function currectY() {
+          return y = y + 1;
+        }
+
+        return {
+          draw: function (ctx) {
+            console.log("Draw");
+            grass.draw(ctx);
+          },
+          init: function () {
+            console.log("Init");
+            canvas = document.getElementById("myCanvas");
+            context = canvas.getContext("2d");
+            grass.init(context);
+            setInterval(can.draw(context), 1000);
+          }
+        }
+      } ();
+      window.onload = can.init;
+    </script>
+</body>
+</html>

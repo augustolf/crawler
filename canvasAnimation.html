@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Test Canvas</title>
+
+
+
+  </script>
+</head>
+
+<body>
+    <canvas id="myCanvas" width="300" height="300" style="border:1px solid #000000;"></canvas>
+    <script type="text/javascript">
+      /*var myCanvas = document.getElementById("myCanvas");
+      var context = myCanvas.getContext("2d");
+      context.fillRect(5, 5, 145, 145);
+      context.fillStyle = "rgb(0, 162, 232)";
+      context.fillRect(40, 55, 145, 145);
+      context.fillStyle = "rgba(255, 0, 0, 0.2)";
+      context.fillRect(75, 105, 145, 145);*/
+
+      var can = function () {
+        var canvas;
+        var context;
+        var x = 0;
+        var y = 0;
+
+        function currectX() {
+          return x = x + 1;
+        }
+
+        function currectY() {
+          return y = y + 1;
+        }
+
+        return {
+          draw: function () {
+            var r = Math.floor(Math.random() * 255) + 70;
+            var g = Math.floor(Math.random() * 255) + 70;
+            var b = Math.floor(Math.random() * 255) + 70;
+            var s = "rgba(" + r + "," + g + "," + b + ", 0.5)";
+
+            context.fillStyle = s;
+            context.scale(1.2,1.2);
+            context.fillRect(currectX(), currectY(), 5, 5);
+          },
+          init: function () {
+            canvas = document.getElementById("myCanvas");
+            context = canvas.getContext("2d");
+            context.translate(0, 0);
+            setInterval(can.draw, 1000);
+          }
+        }
+      } ();
+      window.onload = can.init;
+    </script>
+</body>
+</html>
