@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <title>Test Canvas</title>
-  <script src="crawler.js"></script>
   <script src='perlin.js'></script>
   <script src="grass.js"></script>
+  <script src="crawler.js"></script>
 </head>
 
 <body>
@@ -27,15 +27,19 @@
 
         return {
           draw: function (ctx) {
-            console.log("Draw");
+            //console.log("Draw");
             grass.draw(ctx);
+            crawlers.action(grass.mat);
+            crawlers.draw(ctx);
           },
           init: function () {
-            console.log("Init");
+            //console.log("Init");
             canvas = document.getElementById("myCanvas");
             context = canvas.getContext("2d");
             grass.init(context);
-            setInterval(can.draw(context), 1000);
+            //console.log(grass.mat);
+            crawlers.init(50, 50, 10);
+            setInterval(can.draw, 10, context);
           }
         }
       } ();
